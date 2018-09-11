@@ -54,7 +54,7 @@ client.on("message", function(message) {
             .addField(" - ping", "Tests your ping (Correct usage: >ping)") 
             .addField(" - 8ball", "Answers to all of your questions! (Correct usage: >8ball [question])") 
             .setColor(0x00AE86) 
-            .setFooter("Skyla💋") 
+            .setFooter("Skyla") 
             message.channel.send(embedhelpmember); 
             if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
     }
@@ -71,7 +71,7 @@ client.on("message", function(message) {
             .addField(" - ban", "Bans a desired member with a reason (Correct usage: >ban @username [reason])")  
             .addField(" - say", "Makes me say anything in your desire (Correct usage: >say [message])") 
             .setColor(0x00AE86) 
-            .setFooter("Skyla💋")
+            .setFooter("Skyla")
         message.channel.send(embedhelpmember); 
         if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
     }
