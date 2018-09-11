@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const PREFIX = "!" 
+const PREFIX = ">" 
 
 var eightball = [
     ":8ball: Yes",
@@ -17,7 +17,7 @@ var eightball = [
 ];
 
 client.on("ready", function() { 
-client.user.setGame("Use !info") 
+client.user.setGame("Use >info") 
 console.log("Booted up!") 
 });
 
@@ -30,7 +30,7 @@ client.on('ready', () => {
 });
 
 client.on("guildMemberAdd", function(member) {
-    member.guild.channels.find("name", "general").sendMessage(member.toString() + " **Welcome to the Cave!**");
+    member.guild.channels.find("name", "Welcome Love!").sendMessage(member.toString() + " **Welcome to the Server!**");
 
     member.addRole(member.guild.roles.find("name", "Member"));
   });
@@ -48,13 +48,13 @@ client.on("message", function(message) {
     if (command == "help") { 
         var embedhelpmember = new Discord.RichEmbed() 
             .setTitle("**List of Commands**\n") 
-            .setAuthor("Kaydos v3.0", "https://cdn.discordapp.com/avatars/393625556782022666/d2e118ec0cb2d4697f31e9d99798b04b.png")
-            .addField(" - help", "Displays this message (Correct usage: !help)") 
+            .setAuthor("Skyla's Angel", "https://pm1.narvii.com/6946/a4062c370f8428d7ed2e76b55098ee117db1b6c7r1-696-904v2_128.jpg")
+            .addField(" - help", "Displays this message (Correct usage: >help)") 
             .addField(" - info", "Tells info about myself") 
-            .addField(" - ping", "Tests your ping (Correct usage: !ping)") 
-            .addField(" - 8ball", "Answers to all of your questions! (Correct usage: !8ball [question])") 
+            .addField(" - ping", "Tests your ping (Correct usage: >ping)") 
+            .addField(" - 8ball", "Answers to all of your questions! (Correct usage: >8ball [question])") 
             .setColor(0x00AE86) 
-            .setFooter("Kaydos.tf") 
+            .setFooter("Skyla💋") 
             message.channel.send(embedhelpmember); 
             if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
     }
@@ -62,22 +62,22 @@ client.on("message", function(message) {
     if (command == "helpop") {
         var embedhelpadmin = new Discord.RichEmbed()
             .setTitle("**List of Staff Commands**\n") 
-            .setAuthor("Kaydos v3.0", "https://cdn.discordapp.com/avatars/393625556782022666/d2e118ec0cb2d4697f31e9d99798b04b.png")
-            .addField(" - helpop", "Displays this message (Correct usage: !helpop)") 
-            .addField(" - say", "Makes the bot say whatever you want (Correct usage: !say [message])")
-            .addField(" - mute", "Mutes a desired member with a reason (Coorect usage: !mute @username [reason])") 
-            .addField(" - unmute", "Unmutes a muted player (Correct usage: !unmute @username)")
-            .addField(" - kick", "Kicks a desired member with a reason (Correct usage: !kick @username [reason])")
-            .addField(" - ban", "Bans a desired member with a reason (Correct usage: !ban @username [reason])")  
-            .addField(" - say", "Makes me say anything in your desire (Correct usage: !say [message])") 
+            .setAuthor("Skyla's Angel", "https://pm1.narvii.com/6946/a4062c370f8428d7ed2e76b55098ee117db1b6c7r1-696-904v2_128.jpg")
+            .addField(" - helpop", "Displays this message (Correct usage: >helpop)") 
+            .addField(" - say", "Makes the bot say whatever you want (Correct usage: >say [message])")
+            .addField(" - mute", "Mutes a desired member with a reason (Coorect usage: >mute @username [reason])") 
+            .addField(" - unmute", "Unmutes a muted player (Correct usage: >unmute @username)")
+            .addField(" - kick", "Kicks a desired member with a reason (Correct usage: >kick @username [reason])")
+            .addField(" - ban", "Bans a desired member with a reason (Correct usage: >ban @username [reason])")  
+            .addField(" - say", "Makes me say anything in your desire (Correct usage: >say [message])") 
             .setColor(0x00AE86) 
-            .setFooter("Kaydos.tf")
+            .setFooter("Skyla💋")
         message.channel.send(embedhelpmember); 
         if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
     }
 
     if (command == "info") {
-        message.channel.send("Hey! I'm **Kaydos Bot** I fight crime and much more! Check out my commands by doing !help")
+        message.channel.send("Hey! I'm **Skyla!** I am an Angel sent from above. Check out my commands by doing >help")
     }
 
     if (command == "ping") { 
@@ -86,7 +86,7 @@ client.on("message", function(message) {
 
     if (command == "8ball") { 
         if (args[1] != null) message.reply(eightball[Math.floor(Math.random() * eightball.length).toString(16)]); 
-        else message.channel.send("Fellow Citizen what is your question? (Correct usage: !8ball [question])"); 
+        else message.channel.send("Fellow Citizen what is your question? (Correct usage: >8ball [question])"); 
     }
 
     if (command == "say") {
@@ -121,8 +121,8 @@ client.on("message", function(message) {
 
     if (command == "rules") {
         var embedhelpmember = new Discord.RichEmbed()
-        .setTitle("**Welcome to the Cave!**")
-        .setAuthor("Kaydos v3.0", "https://cdn.discordapp.com/avatars/393625556782022666/d2e118ec0cb2d4697f31e9d99798b04b.png")
+        .setTitle("**Welcome to the Server!**")
+        .setAuthor("Skyla's Angel", "https://pm1.narvii.com/6946/a4062c370f8428d7ed2e76b55098ee117db1b6c7r1-696-904v2_128.jpg")
         .setDescription("This is a friendly community, have fun, but keep it friendly!")  
             .addField(" ⠀⠀⠀⠀⠀⠀", "**-----------------------------------------------------------------------**")
             .addField(" - *Always Respect.*", " - *No spamming links, images, mentions, etc.*")
@@ -133,7 +133,7 @@ client.on("message", function(message) {
             .addField(" - *Don't tag anyone randomly*", " - *No Threats*")
             .addField(" - *No Haters*", " **-----------------------------------------------------------------------**")
             .setColor(0x00AE86) 
-            .setFooter("Kaydos' Cave™")
+            .setFooter("Skyla💋")
         message.channel.send(embedhelpmember); 
         if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
     }
