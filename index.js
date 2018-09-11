@@ -30,7 +30,7 @@ client.on('ready', () => {
 });
 
 client.on("guildMemberAdd", function(member) {
-    member.guild.channels.find("name", "Welcome Love!").sendMessage(member.toString() + " **Welcome to the Server!**");
+    member.guild.channels.find("name", "welcome-and-goodbyes").sendMessage(member.toString() + " **Welcome to the Server!**");
 
     member.addRole(member.guild.roles.find("name", "Member"));
   });
