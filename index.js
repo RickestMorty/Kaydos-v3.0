@@ -45,27 +45,12 @@ client.on("message", function(message) {
     var mutedrole = message.guild.roles.find("name", "muted");
     var mutedrole = message.guild.roles.find("name", "Muted");
 
-        var embedhelpmember = new Discord.RichEmbed() 
-            .setTitle("**List of Commands**\n") 
-            .setAuthor("Skyla Angel", "https://cdn.discordapp.com/attachments/488597326181433364/489307621384388609/JPEG_20180910_174855.jpg")
-            .addField(" - help", "Displays this message (Correct usage: >help)") 
-            .addField(" - info", "Tells info about myself") 
-            .addField(" - ping", "Tests your ping (Correct usage: >ping)") 
-            .addField(" - 8ball", "Answers to all of your questions! (Correct usage: >8ball [question])") 
-            .setColor(0x00AE86) 
-            .setFooter("Skyla") 
-            message.channel.send(embedhelpmember); 
-            if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
-    }
-
-        if (command == "say") {
-        if (!message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!");
+    if (command == "say") {
+        if (!message.member.roles.some(r=>["bot-admin"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!");
         var sayMessage = message.content.substring(4)
         message.delete().catch(O_o=>{});
         message.channel.send(sayMessage);
     }
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't mute because of : ${error}`)); 
-        message.reply(`${unmutedmember.user} has been unmuted by ${message.author}!`);
 
 
 
