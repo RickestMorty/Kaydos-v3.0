@@ -45,7 +45,6 @@ client.on("message", function(message) {
     var mutedrole = message.guild.roles.find("name", "muted");
     var mutedrole = message.guild.roles.find("name", "Muted");
 
-    if (command == "help") { 
         var embedhelpmember = new Discord.RichEmbed() 
             .setTitle("**List of Commands**\n") 
             .setAuthor("Skyla Angel", "https://cdn.discordapp.com/attachments/488597326181433364/489307621384388609/JPEG_20180910_174855.jpg")
@@ -59,112 +58,20 @@ client.on("message", function(message) {
             if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
     }
 
-    if (command == "helpop") {
-        var embedhelpadmin = new Discord.RichEmbed()
-            .setTitle("**List of Staff Commands**\n") 
-            .setAuthor("Skyla Angel", "https://cdn.discordapp.com/attachments/488597326181433364/489307621384388609/JPEG_20180910_174855.jpg")
-            .addField(" - helpop", "Displays this message (Correct usage: >helpop)") 
-            .addField(" - say", "Makes the bot say whatever you want (Correct usage: >say [message])")
-            .addField(" - mute", "Mutes a desired member with a reason (Coorect usage: >mute @username [reason])") 
-            .addField(" - unmute", "Unmutes a muted player (Correct usage: >unmute @username)")
-            .addField(" - kick", "Kicks a desired member with a reason (Correct usage: >kick @username [reason])")
-            .addField(" - ban", "Bans a desired member with a reason (Correct usage: >ban @username [reason])")  
-            .addField(" - say", "Makes me say anything in your desire (Correct usage: >say [message])") 
-            .setColor(0x00AE86) 
-            .setFooter("Skyla")
-        message.channel.send(embedhelpmember); 
-        if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
-    }
-
-    if (command == "info") {
-        message.channel.send("Hey! I'm **Skyla!** I am an Angel sent from above. Check out my commands by doing >help")
-    }
-
-    if (command == "ping") { 
-        message.channel.send("Pong!"); 
-    }
-
-    if (command == "8ball") { 
-        if (args[1] != null) message.reply(eightball[Math.floor(Math.random() * eightball.length).toString(16)]); 
-        else message.channel.send("Fellow Human what is your question? (Correct usage: >8ball [question])"); 
-    }
-
-    if (command == "say") {
+        if (command == "say") {
         if (!message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!");
         var sayMessage = message.content.substring(4)
         message.delete().catch(O_o=>{});
         message.channel.send(sayMessage);
     }
-
-    if (command == "mute") { 
-        if (!message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!");
-        var mutedmember = message.mentions.members.first(); 
-        if (!mutedmember) return message.reply("Please mention a valid member of this server!") 
-        if (mutedmember.hasPermission("ADMINISTRATOR")) return message.reply("I cannot mute this member!")
-        var mutereasondelete = 10 + mutedmember.user.id.length
-        var mutereason = message.content.substring(mutereasondelete).split(" ");
-        var mutereason = mutereason.join(" ");
-        if (!mutereason) return message.reply("Please indicate a reason for the mute!") 
-        mutedmember.addRole(mutedrole) 
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't mute because of : ${error}`));
-        message.reply(`${mutedmember.user} has been muted by ${message.author} Reason: ${mutereason}`); 
-    }
-
-    if (command == "unmute") { 
-        if (!message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!");
-        var unmutedmember = message.mentions.members.first();
-        if (!unmutedmember) return message.reply("Please mention a valid member of this server!")
-        unmutedmember.removeRole(mutedrole)
             .catch(error => message.reply(`Sorry ${message.author} I couldn't mute because of : ${error}`)); 
         message.reply(`${unmutedmember.user} has been unmuted by ${message.author}!`);
-    }
 
-    if (command == "rules") {
-        var embedhelpmember = new Discord.RichEmbed()
-        .setTitle("**Welcome to the Server!**")
-        .setAuthor("Skyla's Angel", "https://pm1.narvii.com/6946/a4062c370f8428d7ed2e76b55098ee117db1b6c7r1-696-904v2_128.jpg")
-        .setDescription("This is a friendly community, have fun, but keep it friendly!")  
-            .addField(" ⠀⠀⠀⠀⠀⠀", "**-----------------------------------------------------------------------**")
-            .addField(" - *Always Respect.*", " - *No spamming links, images, mentions, etc.*")
-            .addField(" - *No Racism and Sexism.*", " - *Never assume things.*")
-            .addField(" - **NO NSFW/ AT ALL**", " - *Always follow given instructions from Staff*")
-            .addField(" - *No Advertising in general, or in PM*", " - *No advertising Cheats, Macros & Potential Viruses.*")
-            .addField(" - *Use Common Sense.*", " - *No large/spammy/intrusive/offensive names*")
-            .addField(" - *Don't tag anyone randomly*", " - *No Threats*")
-            .addField(" - *No Haters*", " **-----------------------------------------------------------------------**")
-            .setColor(0x00AE86) 
-            .setFooter("Skyla")
-        message.channel.send(embedhelpmember); 
-        if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
-    }
 
-    if (command == "kick") { 
-        if (!message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); 
-        var kickedmember = message.mentions.members.first(); 
-        if (!kickedmember) return message.reply("Please mention a valid member of this server!") 
-        if (!kickedmember.kickable) return message.reply("I cannot kick this member!") 
-        var kickreasondelete = 10 + kickedmember.user.id.length 
-        var kickreason = message.content.substring(kickreasondelete).split(" "); 
-        var kickreason = kickreason.join(" "); 
-        if (!kickreason) return message.reply("Please indicate a reason for the kick!")
-        kickedmember.kick(kickreason) 
-            .catch(error => message.reply(`Sorry, I couldn't kick because of : ${error}`)); 
-        message.reply(`${kickedmember.user.username} has been kicked by ${message.author.username} Reason: ${kickreason}`); 
-    }
 
-    if (command == "ban") { 
-        if (!message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.reply("Sorry, you do not have the permission to do this!"); 
-        var bannedmember = message.mentions.members.first(); 
-        if (!bannedmember) return message.reply("Please mention a valid member of this server!") 
-        if (!bannedmember.bannable) return message.reply("I cannot ban this member!") 
-        var banreasondelete = 10 + bannedmember.user.id.length 
-        var banreason = message.content.substring(banreasondelete).split(" "); 
-        var banreason = banreason.join(" "); 
-        if (!banreason) return message.reply("Please indicate a reason for the ban!")
-        bannedmember.ban(banreason) 
-            .catch(error => message.reply(`Sorry @${message.author} I couldn't ban because of : ${error}`)); 
-        message.reply(`${bannedmember.user.username} has been banned by ${message.author.username} Reason: ${banreason}`); 
-    }
+
+
+        
 
 });
 
