@@ -48,7 +48,7 @@ client.on("message", function(message) {
     if (command == "help") { 
         var embedhelpmember = new Discord.RichEmbed() 
             .setTitle("**List of Commands**\n") 
-            .setAuthor("Skyla's Angel", "https://pm1.narvii.com/6946/a4062c370f8428d7ed2e76b55098ee117db1b6c7r1-696-904v2_128.jpg")
+            .setAuthor("Skyla Angel", "https://cdn.discordapp.com/attachments/488597326181433364/489307621384388609/JPEG_20180910_174855.jpg")
             .addField(" - help", "Displays this message (Correct usage: >help)") 
             .addField(" - info", "Tells info about myself") 
             .addField(" - ping", "Tests your ping (Correct usage: >ping)") 
@@ -62,7 +62,7 @@ client.on("message", function(message) {
     if (command == "helpop") {
         var embedhelpadmin = new Discord.RichEmbed()
             .setTitle("**List of Staff Commands**\n") 
-            .setAuthor("Skyla's Angel", "https://pm1.narvii.com/6946/a4062c370f8428d7ed2e76b55098ee117db1b6c7r1-696-904v2_128.jpg")
+            .setAuthor("Skyla Angel", "https://cdn.discordapp.com/attachments/488597326181433364/489307621384388609/JPEG_20180910_174855.jpg")
             .addField(" - helpop", "Displays this message (Correct usage: >helpop)") 
             .addField(" - say", "Makes the bot say whatever you want (Correct usage: >say [message])")
             .addField(" - mute", "Mutes a desired member with a reason (Coorect usage: >mute @username [reason])") 
@@ -86,7 +86,7 @@ client.on("message", function(message) {
 
     if (command == "8ball") { 
         if (args[1] != null) message.reply(eightball[Math.floor(Math.random() * eightball.length).toString(16)]); 
-        else message.channel.send("Fellow Citizen what is your question? (Correct usage: >8ball [question])"); 
+        else message.channel.send("Fellow Human what is your question? (Correct usage: >8ball [question])"); 
     }
 
     if (command == "say") {
@@ -133,7 +133,7 @@ client.on("message", function(message) {
             .addField(" - *Don't tag anyone randomly*", " - *No Threats*")
             .addField(" - *No Haters*", " **-----------------------------------------------------------------------**")
             .setColor(0x00AE86) 
-            .setFooter("Skyla💋")
+            .setFooter("Skyla")
         message.channel.send(embedhelpmember); 
         if(message.member.roles.some(r=>["staff", "Staff"].includes(r.name)) ) return message.channel.send(embedhelpadmin); 
     }
